@@ -4,6 +4,7 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -29,17 +30,18 @@ public class ViewController implements Initializable {
 
     @FXML
     void hozzaadGomb(ActionEvent event) {
-    	System.out.println("Működik");
-    	System.out.println(idMezo);
+    	//System.out.println("Működik");
+    	System.out.println(idMezo.getText());
     	System.out.println(vezeteknevMezo.getText());
-    	System.out.println(keresztnevMezo);
-    	System.out.println(szuletesidatumMezo);
+    	System.out.println(keresztnevMezo.getText());
+    	System.out.println(szuletesidatumMezo.getText());
     	
 
     }
 
     @FXML
     void menuItemKilepes(ActionEvent event) {
+    	Platform.exit();
 
     }
 
