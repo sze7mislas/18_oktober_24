@@ -85,6 +85,12 @@ public class ViewController implements Initializable {
 		tablaSzuletesiDatum.setCellValueFactory(cellData -> cellData.getValue().szuletesidatumProperty());
 		tabla.setItems(tablaAdatok);
 	}
+	@FXML
+    void menuItemTorol(ActionEvent event) 
+	{
+		Szemely szemelyTorol=tabla.getSelectionModel().getSelectedItem();
+		tablaAdatok.remove(szemelyTorol);
+    }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

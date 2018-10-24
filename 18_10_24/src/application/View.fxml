@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -38,6 +39,13 @@
                   <TableColumn fx:id="tablaKeresztnev" prefWidth="75.0" text="Keresztnév" />
                   <TableColumn fx:id="tablaSzuletesiDatum" prefWidth="135.0" text="Születési Dátum" />
               </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#menuItemTorol" text="Töröl" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
             </TableView>
          </center>
          <bottom>
