@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
@@ -27,6 +28,19 @@ public class ViewController implements Initializable {
 
     @FXML
     private TextField szuletesidatumMezo;
+   
+
+    @FXML
+    private TableColumn<?, ?> tablaID;
+
+    @FXML
+    private TableColumn<?, ?> tablaVezeteknev;
+
+    @FXML
+    private TableColumn<?, ?> tablaKeresztnev;
+
+    @FXML
+    private TableColumn<?, ?> tablaSzuletesiDatum;
 
     @FXML
     void hozzaadGomb(ActionEvent event) {
@@ -38,6 +52,7 @@ public class ViewController implements Initializable {
     	
 
     }
+    
 
     @FXML
     void menuItemKilepes(ActionEvent event) {
