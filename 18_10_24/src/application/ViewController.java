@@ -5,21 +5,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class ViewController implements Initializable {
 
     @FXML
-    private TableView<?> tabla;
+   private TableView<Szemely> tabla;
 
     @FXML
     private TextField idMezo;
-
     @FXML
     private TextField vezeteknevMezo;
 
@@ -31,16 +33,20 @@ public class ViewController implements Initializable {
    
 
     @FXML
-    private TableColumn<?, ?> tablaID;
+    private TableColumn<Szemely, String> tablaID;
 
     @FXML
-    private TableColumn<?, ?> tablaVezeteknev;
+    private TableColumn<Szemely, String> tablaVezeteknev;
 
     @FXML
-    private TableColumn<?, ?> tablaKeresztnev;
+    private TableColumn<Szemely, String> tablaKeresztnev;
 
     @FXML
-    private TableColumn<?, ?> tablaSzuletesiDatum;
+    private TableColumn<Szemely, String> tablaSzuletesiDatum;
+    
+    private ObservableList<Szemely> tablaAdatok=FXCollections.observableArrayList();
+    
+   
 
     @FXML
     void hozzaadGomb(ActionEvent event) {
@@ -64,10 +70,30 @@ public class ViewController implements Initializable {
     void menuItemNevjegy(ActionEvent event) {
 
     }
+    private void kezdoAdatok()
+    {
+    	Szemely szemely1= new Szemely("1","Pusztai","Bence","1990-02-13");
+    	Szemely szemely2= new Szemely("2","Juhász","Bence","1994-03-27");
+    	Szemely szemely3= new Szemely("3","Kiss","Balázs","1983-02-04");
+    	tablaAdatok.add(szemely1);
+    	tablaAdatok.add(szemely2);
+    	tablaAdatok.add(szemely3);
+    }
+    
+    private void tablaAdatokBeallitasa() 
+    {
+    	tablaID.setCellValueFactory(cellData->cellData.getValue().idProperty());
+    	tablaVezeteknev.setCellValueFactory(cellData->cellData.getValue().vezeteknevProperty());
+    	tablaKeresztnev.setCellValueFactory(cellData->cellData.getValue().keresztnevProperty());
+    	tablaSzuletesiDatum.setCellValueFactory(cellData->cellData.getValue().szuletesidatumProperty());
+    	tabla.setItems(tablaAdatok);
+    }
+    
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		kezdoAdatok();
+		tablaAdatokBeallitasa();
 		
 	}
 
