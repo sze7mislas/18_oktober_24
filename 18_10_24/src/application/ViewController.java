@@ -65,8 +65,9 @@ public class ViewController implements Initializable {
 	}
 
 	@FXML
-	void menuItemNevjegy(ActionEvent event) {
-
+	void menuItemNevjegy(ActionEvent event)
+	{
+		
 	}
 
 	private void kezdoAdatok() {
@@ -91,6 +92,19 @@ public class ViewController implements Initializable {
 		Szemely szemelyTorol=tabla.getSelectionModel().getSelectedItem();
 		tablaAdatok.remove(szemelyTorol);
     }
+	@FXML
+	    void menuItemSzerkeszt(ActionEvent event)
+		{
+		Szemely szemelySzerkeszt= tabla.getSelectionModel().getSelectedItem();
+		/*tablaAdatok.remove(szemelySzerkeszt);
+		idMezo.setText(szemelySzerkeszt.getId());
+		vezeteknevMezo.setText(szemelySzerkeszt.getVezeteknev());
+		keresztnevMezo.setText(szemelySzerkeszt.getKeresztnev());
+		szuletesidatumMezo.setText(szemelySzerkeszt.getSzuletesidatum());
+		tablaAdatok.*/
+		
+	    }
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
